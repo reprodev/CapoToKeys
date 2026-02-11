@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -107,7 +107,7 @@
                                     <a class="btn btn-secondary btn-sm" href="{{ url_for('view_file', filename=f.name) }}"
                                         target="_blank">View</a>
                                     <a class="btn btn-secondary btn-sm"
-                                        href="{{ url_for('download', filename=f.name) }}">Download</a>
+                                        href="{{ url_for('download', filename=f.name) }}" target="_blank" rel="noopener">Download</a>
                                     <form method="post" action="{{ url_for('delete_file', filename=f.name) }}"
                                         onsubmit="return confirm('Permanently delete {{ f.name }}?');">
                                         <button class="btn btn-danger btn-sm" type="submit">Delete</button>
@@ -131,6 +131,7 @@
 </body>
 
 </html>
+
 
 
 
