@@ -32,13 +32,13 @@ CapoToKeys provides a Docker-first Flask WebUI, a CLI mode for scripts, and an o
 ## Quick Start (Docker)
 
 ```bash
-docker build -t capo-to-keys:dev -f dockerfile .
+docker build -t capo-to-keys:latest -f dockerfile .
 
-docker run --rm -it \
-  --name capo-to-keys \
+docker run -d \
+  --name capotokeys \
   -p 4506:4506 \
-  -v "$(pwd)/appdata/config/capotokeys:/data" \
-  capo-to-keys:dev
+  -v "./data:/data" \
+  capo-to-keys:latest
 ```
 
 Open: `http://localhost:4506`
@@ -55,7 +55,7 @@ docker compose up -d
 
 Default image reference in that file:
 
-- `ghcr.io/reprodev/capotokeys:v1.0`
+- `ghcr.io/reprodev/capotokeys:latest`
 
 If the package is private, authenticate first:
 
@@ -168,6 +168,7 @@ GHCR setup details: `docs/GHCR_SETUP.md`
 ## License
 
 MIT — see `LICENSE`.
+
 
 
 
