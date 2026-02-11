@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CapoToKeys | Premium Chord Conversion</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h2>CapoToKeys</h2>
+      <p class="muted">Convert guitar capo chord charts into piano-ready keys with precision and style.</p>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for m in messages %}
+    <div class="flash">{{ m }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <main class="card" style="margin-top: 1rem;">
+      <form method="post" action="{{ url_for('generate') }}">
+        <div class="row">
+          <div class="input-group">
+            <label for="capo">Capo Position</label>
+            <input type="number" id="capo" name="capo" min="0" max="11" value="{{ capo }}" required>
+          </div>
+          <div class="input-group">
+            <label for="title">Song Name</label>
+            <input type="text" id="title" name="title" value="{{ title }}" placeholder="Halo by Beyonce">
+          </div>
+          <div class="input-group">
+            <label>Output</label>
+            <div style="display:flex; align-items:center; gap:0.7rem; padding-top: 0.45rem;">
+              <div class="muted">TXT + PDF (automatic)</div>
+              <a class="btn btn-clear btn-sm" href="{{ url_for('home') }}">Clear</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="text">Chord Sheet Source</label>
+          <textarea id="text" name="text"
+            placeholder="Paste your chord sheet here... (e.g., [C] Hello [G] World)">{{ text }}</textarea>
+        </div>
+
+        <div class="row" style="margin-top: 2rem; margin-bottom: 0;">
+          <button class="btn btn-bottom" type="submit">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 16 12 12 8 16"></polyline>
+              <line x1="12" y1="12" x2="12" y2="21"></line>
+              <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+              <polyline points="16 16 12 12 8 16"></polyline>
+            </svg>
+            Generate Transposition
+          </button>
+          <a class="btn btn-bottom btn-archive" href="{{ url_for('list_outputs') }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Browse Archive
+          </a>
+        </div>
+      </form>
+    </main>
+
+    {% if result %}
+    <section class="workspace container">
+      <h3>Transposed Result</h3>
+
+      <div class="row">
+        <div class="actions">
+          <a class="btn btn-sm" href="{{ url_for('download', filename=txt_name) }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download TXT
+          </a>
+          <a class="btn btn-sm" href="{{ url_for('download', filename=pdf_name) }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+          </a>
+        </div>
+        <span class="muted">Saved: {{ txt_name }} and {{ pdf_name }}</span>
+      </div>
+
+      <pre id="transposed-result">{{ result }}</pre>
+    </section>
+    {% endif %}
+
+    <footer style="margin-top: 3rem;" class="muted">
+      <p style="text-align:left;">&copy; 2026 ReproDev. Licensed under MIT.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
+
+
+
+
+
+
+

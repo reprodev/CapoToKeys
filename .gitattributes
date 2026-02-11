@@ -1,0 +1,5 @@
+﻿# Exclude internal planning artifacts from source archives
+
+docs/*.resolved export-ignore
+docs/*.resolved.* export-ignore
+docs/*.metadata.json export-ignore

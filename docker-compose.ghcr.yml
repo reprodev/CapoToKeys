@@ -1,0 +1,15 @@
+﻿services:
+  capotokeys:
+    image: ghcr.io/reprodev/capotokeys:v1.0
+    container_name: capotokeys
+    ports:
+      - "4506:4506"
+    environment:
+      OUTPUT_CONFLICT_MODE: suffix
+      WEB_HOST: 0.0.0.0
+      WEB_PORT: 4506
+    volumes:
+      - ./appdata/config/capotokeys:/data
+    restart: unless-stopped
+
+

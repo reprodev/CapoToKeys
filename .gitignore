@@ -1,0 +1,19 @@
+﻿__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# local generated outputs
+appdata/config/capotokeys/outputs/*
+!appdata/config/capotokeys/outputs/.gitkeep
+
+# local test scratch
+tests/.tmp/
+
+# packaging artifacts
+build/
+dist/
+*.spec
