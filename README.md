@@ -17,8 +17,6 @@ CapoToKeys provides a Docker-first Flask WebUI, a CLI mode for scripts, and an o
 
 ## Screenshots
 
-<img width="961" height="807" alt="image" src="https://github.com/user-attachments/assets/8fb4ad9c-559a-4cf9-b152-6f145097b91b" />
-
 ### Generator View
 
 ![Generator View](docs/assets/screenshot-generator.png)
