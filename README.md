@@ -43,8 +43,28 @@ docker run -d \
 
 Open: `http://localhost:4506`
 
+`capo-to-keys:dev` in this section is a local image tag built on your machine.
+
 Outputs are written to `/data/outputs` (mapped to your local volume path).
 
+## Pull From GHCR (No Local Build)
+
+Pinned release (recommended for reproducible testing):
+
+```bash
+docker pull ghcr.io/reprodev/capotokeys:v1.0
+docker run --rm -it \
+  --name capotokeys \
+  -p 4506:4506 \
+  -v "$(pwd)/appdata/config/capotokeys:/data" \
+  ghcr.io/reprodev/capotokeys:v1.0
+```
+
+Latest default-branch image:
+
+```bash
+docker pull ghcr.io/reprodev/capotokeys:latest
+```
 ## Quick Start (GHCR + Compose)
 
 Use the included compose example:
@@ -71,9 +91,10 @@ Published GHCR image format:
 
 Common tags:
 
-- `latest` (default branch)
+- `v1.0` (current release tag)
+- `latest` (default branch, moving tag)
 - `dev` (dev branch)
-- `vX.Y.Z` (release tags)
+- `vX.Y.Z` (future release tags)
 - `sha-<commit>`
 
 ## Configuration
