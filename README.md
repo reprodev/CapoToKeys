@@ -37,7 +37,6 @@ docker build -t capo-to-keys:dev -f dockerfile .
 docker run --rm -it \
   --name capo-to-keys \
   -p 4506:4506 \
-  -e OUTPUT_CONFLICT_MODE=suffix \
   -v "$(pwd)/appdata/config/capotokeys:/data" \
   capo-to-keys:dev
 ```
@@ -56,7 +55,7 @@ docker compose up -d
 
 Default image reference in that file:
 
-- `ghcr.io/reprodev/capo2keys_private:latest`
+- `ghcr.io/reprodev/capotokeys:v1.0`
 
 If the package is private, authenticate first:
 
@@ -169,4 +168,7 @@ GHCR setup details: `docs/GHCR_SETUP.md`
 ## License
 
 MIT — see `LICENSE`.
+
+
+
 

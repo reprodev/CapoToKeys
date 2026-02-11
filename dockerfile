@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+﻿FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   python3 \
@@ -22,7 +22,8 @@ COPY templates/ /app/templates/
 # All generated files are written to: /data/outputs
 ENV DATA_DIR=/data \
   WEB_HOST=0.0.0.0 \
-  WEB_PORT=4506
+  WEB_PORT=4506 \
+  OUTPUT_CONFLICT_MODE=suffix
 
 # Declare persistent volume for outputs
 VOLUME ["/data"]
