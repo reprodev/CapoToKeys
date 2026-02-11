@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -77,7 +77,7 @@
 
       <div class="row">
         <div class="actions">
-          <a class="btn btn-sm" href="{{ url_for('download', filename=txt_name) }}">
+          <a class="btn btn-sm" href="{{ url_for('download', filename=txt_name) }}" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
@@ -86,7 +86,7 @@
             </svg>
             Download TXT
           </a>
-          <a class="btn btn-sm" href="{{ url_for('download', filename=pdf_name) }}">
+          <a class="btn btn-sm" href="{{ url_for('download', filename=pdf_name) }}" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
@@ -110,6 +110,7 @@
 </body>
 
 </html>
+
 
 
 

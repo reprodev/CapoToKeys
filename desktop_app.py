@@ -42,9 +42,10 @@ def main():
     except ImportError as exc:
         raise SystemExit("Desktop mode needs pywebview. Install requirements-desktop.txt") from exc
 
-    webview.create_window("CapoToKeys", f"http://{host}:{port}", min_size=(960, 700))
+    # Let links with target=_blank open in the system browser.`r`n    # This ensures file downloads work in desktop executable mode.`r`n    webview.settings["OPEN_EXTERNAL_LINKS_IN_BROWSER"] = True`r`n    webview.create_window("CapoToKeys", f"http://{host}:{port}", min_size=(960, 700))
     webview.start()
 
 
 if __name__ == "__main__":
     main()
+

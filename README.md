@@ -51,12 +51,12 @@ Outputs are written to `/data/outputs` (mapped to your local volume path).
 Use the included compose example:
 
 ```bash
-docker compose -f docker-compose.ghcr.yml up -d
+docker compose up -d
 ```
 
 Default image reference in that file:
 
-- `ghcr.io/reprodev/capotokeys:v1.0`
+- `ghcr.io/reprodev/capo2keys_private:latest`
 
 If the package is private, authenticate first:
 
@@ -74,8 +74,7 @@ Common tags:
 
 - `latest` (default branch)
 - `dev` (dev branch)
-- `v1.0` (current release tag)
-- `vX.Y.Z` (future release tags)
+- `vX.Y.Z` (release tags)
 - `sha-<commit>`
 
 ## Configuration
@@ -170,5 +169,4 @@ GHCR setup details: `docs/GHCR_SETUP.md`
 ## License
 
 MIT — see `LICENSE`.
-
 
